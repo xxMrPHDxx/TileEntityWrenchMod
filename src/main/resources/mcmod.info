@@ -1,0 +1,16 @@
+[
+{
+  "modid": "tew",
+  "name": "Tile Entity Wrench",
+  "description": "Wrench block with entities and move it around.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["xxMrPHDxx"],
+  "credits": "The Forge and FML guys.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

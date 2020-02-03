@@ -1,0 +1,4 @@
+item.wrench.name=Magic Wrench
+item.tile_box.name=Tile Box
+
+itemGroup.tewMod=TileEntity Wrench
