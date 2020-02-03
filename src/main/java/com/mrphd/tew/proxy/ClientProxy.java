@@ -29,18 +29,19 @@ public class ClientProxy extends CommonProxy {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(ModItems.TILE_BOX, new ItemMeshDefinition() {
 			@Override
 			public ModelResourceLocation getModelLocation(ItemStack stack) {
+				final ModelResourceLocation _default = new ModelResourceLocation(Utils.location("tile_box"), "inventory"); 
 				final NBTTagCompound nbt;
 				if (stack.getItem() == ModItems.TILE_BOX && stack.hasTagCompound() && (nbt = stack.getTagCompound()).hasKey("Block")) {
 					final ItemStack blockStack = new ItemStack(nbt.getCompoundTag("Block"));
 					if (blockStack != null && !blockStack.isEmpty() && blockStack.getItem() instanceof ItemBlock) {
 						final Block block = ((ItemBlock) blockStack.getItem()).getBlock();
 						if(block == Blocks.CHEST) {
-							return new ModelResourceLocation(Utils.location("tile_box"), "inventory");
+							return _default;
 						}
 						return new ModelResourceLocation(block.getRegistryName(), "inventory");
 					}
 				}
-				return null;
+				return _default;
 			}
 		});
 		System.out.println("Done registering custom item mesh definitions.");
