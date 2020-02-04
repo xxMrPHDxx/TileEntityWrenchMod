@@ -38,6 +38,8 @@ public class ItemWrench extends ItemBase {
 					final ItemStack item = ModItems.TILE_BOX.getDefaultInstance();
 					NBTTagCompound nbt = item.getTagCompound();
 					if(nbt == null) nbt = new NBTTagCompound();
+					final ItemStack blockStack = new ItemStack(block);
+					blockStack.setItemDamage(block.getMetaFromState(state));
 					nbt.setTag("Block", new ItemStack(block).writeToNBT(new NBTTagCompound()));
 					nbt.setTag("TileData", te.serializeNBT());
 					final NBTTagList properties = new NBTTagList();
@@ -48,7 +50,6 @@ public class ItemWrench extends ItemBase {
 						properties.appendTag(tag);
 					}
 					nbt.setTag("Properties", properties);
-					nbt.setInteger("Meta", block.getMetaFromState(state));
 					item.setTagCompound(nbt);
 					final Entity tilebox = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), item);// new EntityTileBox(world, te, state);
 					world.spawnEntity(tilebox);

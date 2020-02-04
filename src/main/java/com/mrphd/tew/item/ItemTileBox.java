@@ -154,9 +154,6 @@ public class ItemTileBox extends ItemBase {
 								}
 							}
 						}
-						
-						// Try to get the block's meta
-						stack.setItemDamage(nbt.getInteger("Meta"));
 
 						// Try to get Tile Data
 						final TileEntity te = TileEntity.create(world, nbt.getCompoundTag("TileData"));
